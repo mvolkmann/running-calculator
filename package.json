@@ -1,0 +1,19 @@
+{
+  "name": "running-pace",
+  "version": "1.0.0",
+  "description": "demo Heroku app",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
+  },
+  "author": "R. Mark Volkmann",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4"
+  },
+  "engines": {
+    "node": "^6.2.0"
+  }
+}
