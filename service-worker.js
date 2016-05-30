@@ -17,25 +17,21 @@ this.addEventListener('install', event => {
   event.waitUntil(promise);
 });
 
+// Intercepts each HTTP request.
 this.addEventListener('fetch', event => {
   console.log('got fetch event =', event);
-  let response;
-
   const promise =
     // Try to find in cache.
     caches.match(event.request).
     // If not found in cache ...
     catch(() => {
-      // try to download from network.
+      // Try to download from network.
       return fetch(event.request);
     }).
     // If successfully downloaded from network ...
-    then(r => {
-      console.log('successfully downloaded from network, r =', r);
-      console.log('successfully downloaded from network,',
-        'r.prototype.constructor =', r.prototype.constructor);
-      // add the contents to cache for next time.
-      response = r;
+    then(response => {
+      console.log('successfully downloaded from network, response =', response);
+      // Add the contents to cache for next time.
       caches.open('v1').then(cache => {
         cache.put(event.request, response);
       });
