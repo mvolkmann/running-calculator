@@ -7,6 +7,7 @@ this.addEventListener('install', event => {
     then(cache => {
       return cache.addAll([
         '/index.html',
+        '/favicon.ico',
         '/running-calculator.css',
         '/running-calculator.js',
         '/images/Boston2013.jpg'
