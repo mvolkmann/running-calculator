@@ -3,7 +3,7 @@
 
 const bodyParser = require('body-parser');
 const express = require('express');
-//const path = require('path');
+const path = require('path');
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(bodyParser.text()); // for Content-Type 'text/plain'
 // for Content-Type 'application/x-www-form-urlencoded'
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(express.static(__dirname));
+app.use(express.static('public'));
 
 app.get('/hello', (req, res) => {
   res.send('Hello, World!');
