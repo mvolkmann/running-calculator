@@ -10,7 +10,7 @@ this.addEventListener('install', event => {
         '/index.html',
         '/running-calculator.css',
         '/running-calculator.js',
-        '/service-worker.js',
+        //'/service-worker.js', // maybe this shouldn't be cached
         '/images/Boston2013.jpg'
       ]);
     });
