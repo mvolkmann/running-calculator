@@ -1,10 +1,8 @@
 'use strict';
 /*eslint no-invalid-this: 0 */
 
-console.log('entered service worker');
-
 this.addEventListener('install', event => {
-  console.log('service-worker.js install: event =', event);
+  console.log('service worker received install event');
   const promise = caches.open('v1').
     then(cache => {
       return cache.addAll([
@@ -20,7 +18,7 @@ this.addEventListener('install', event => {
 
 // Intercepts each HTTP request.
 this.addEventListener('fetch', event => {
-  console.log('got fetch event for', event.request.url);
+  console.log('service worker received fetch event for', event.request.url);
   const promise =
     // Try to find in cache.
     caches.match(event.request).
@@ -48,7 +46,7 @@ this.addEventListener('fetch', event => {
 });
 
 this.addEventListener('activate', event => {
-  console.log('service worker was activated; event =', event);
+  console.log('service worker received activate event');
   // Uncomment this when version 2 is ready.
   /*
   const cacheWhitelist = ['v2'];

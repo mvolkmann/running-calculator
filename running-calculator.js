@@ -1,5 +1,6 @@
 'use strict';
 
+//TODO: Should this be called every time this app is loaded?
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js').
     then(registration => {
