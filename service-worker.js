@@ -4,6 +4,7 @@
 console.log('entered service worker');
 
 this.addEventListener('install', event => {
+  console.log('service-worker.js install: event =', event);
   const promise = caches.open('v1').
     then(cache => {
       return cache.addAll([
@@ -19,7 +20,7 @@ this.addEventListener('install', event => {
 
 // Intercepts each HTTP request.
 this.addEventListener('fetch', event => {
-  console.log('got fetch event =', event);
+  console.log('got fetch event for', event.request.url);
   const promise =
     // Try to find in cache.
     caches.match(event.request).
@@ -30,7 +31,7 @@ this.addEventListener('fetch', event => {
     }).
     // If successfully downloaded from network ...
     then(response => {
-      console.log('successfully downloaded from network, response =', response);
+      console.log('successfully downloaded from network', response.url);
       // Add the contents to cache for next time.
       caches.open('v1').then(cache => {
         cache.put(event.request, response);
