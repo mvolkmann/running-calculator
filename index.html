@@ -3,11 +3,34 @@
   <head>
     <title>Running Pace</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="running-calculator.css">
+    <script src="/running-calculator.js"></script>
   </head>
   <body>
     <h1>Running Pace Calculator</h1>
+    <img src="/images/Boston2013.jpg">
 
-    <h3>Enter any two of the values below and press "Calculate".</h3>
-    FOO BAR
+    <div class="form">
+      <div class="row">
+        <label>Distance:</label>
+        <select id="distance">
+          <option value="26.2">Marathon</option>
+          <option value="13.1">Half Marathon</option>
+          <option value="6.2">10K</option>
+          <option value="3.1">5K</option>
+          <option value="1">1 mile</option>
+        </select>
+      </div>
+      <div class="row">
+        <label>Time (h/m/s):</label>
+        <input id="time" type="text" value="3:00:00">
+        <button onclick="calculateTime()">Calculate</button>
+      </div>
+      <div class="row">
+        <label>Pace (m:s):</label>
+        <input id="pace" type="text">
+        <button onclick="calculatePace()">Calculate</button>
+      </div>
+    </div>
   </body>
 </html>

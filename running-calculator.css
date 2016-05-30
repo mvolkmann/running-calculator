@@ -1,0 +1,31 @@
+body {
+  background-color: linen;
+  font-family: sans-serif;
+}
+
+button, input {
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form {
+  display: inline-block;
+  vertical-align: top;
+}
+
+img {
+  display: inline-block;
+  height: 150px;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+
+.row {
+  height: 30px;
+  margin: 15px;
+}
