@@ -10,7 +10,7 @@ this.addEventListener('install', event => {
         '/index.html',
         '/running-calculator.css',
         '/running-calculator.js',
-        '/images/Boston2013.png'
+        '/images/Boston2013.jpg'
       ]);
     });
   event.waitUntil(promise);
