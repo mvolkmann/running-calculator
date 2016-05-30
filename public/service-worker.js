@@ -3,9 +3,8 @@
 
 this.addEventListener('install', event => {
   console.log('service worker received install event');
-  // This may not be needed since the fetch listener
+  // This seems to be needed even though the fetch listener
   // adds all downloaded files to the cache.
-  /*
   const promise = caches.open('v1').
     then(cache => {
       return cache.addAll([
@@ -18,7 +17,6 @@ this.addEventListener('install', event => {
       ]);
     });
   event.waitUntil(promise);
-  */
 });
 
 // Intercepts each HTTP request.
