@@ -1,7 +1,6 @@
 'use strict';
 
 if ('serviceWorker' in navigator) {
-  /*
   navigator.serviceWorker.register('service-worker.js').
     then(registration => {
       console.log(
@@ -11,7 +10,6 @@ if ('serviceWorker' in navigator) {
     catch(error => {
       console.error('failed to register service worker:', error);
     });
-  */
 }
 
 const KILOMETERS_PER_MILE = 3.609;
