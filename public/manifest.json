@@ -1,5 +1,6 @@
 {
   "name": "Running Calculator",
+  "short_name": "RunCalc",
   "icons": [
     {
       "src": "favicon.ico",
