@@ -18,6 +18,7 @@ this.addEventListener('install', event => {
 });
 
 this.addEventListener('fetch', event => {
+  console.log('got fetch event =', event);
   let response;
 
   const promise =
@@ -30,6 +31,9 @@ this.addEventListener('fetch', event => {
     }).
     // If successfully downloaded from network ...
     then(r => {
+      console.log('successfully downloaded from network, r =', r);
+      console.log('successfully downloaded from network,',
+        'r.prototype.constructor =', r.prototype.constructor);
       // add the contents to cache for next time.
       response = r;
       caches.open('v1').then(cache => {
