@@ -16,6 +16,9 @@ this.addEventListener('install', event => {
         //'/service-worker.js' // shouldn't be cached
       ]);
     });
+  console.log('service-worker.js install: promise =', promise);
+  console.log('service-worker.js install: promise.prototype.constructor.name =',
+    promise.prototype.constructor.name);
   event.waitUntil(promise);
 });
 
@@ -45,6 +48,9 @@ this.addEventListener('fetch', event => {
       return caches.match('/sw-test/gallery/myLittleVader.jpg');
     });
 
+  console.log('service-worker.js fetch: promise =', promise);
+  console.log('service-worker.js fetch: promise.prototype.constructor.name =',
+    promise.prototype.constructor.name);
   event.respondWith(promise);
 });
 
