@@ -16,10 +16,14 @@ this.addEventListener('install', event => {
         //'/service-worker.js' // shouldn't be cached
       ]);
     });
-  console.log('service-worker.js install: promise =', promise);
-  console.log('service-worker.js install: promise.constructor.name =',
-    promise.constructor.name);
-  event.waitUntil(promise);
+
+  const ctorName = promise.constructor.name;
+  if (ctorName !== 'Promise') {
+    console.error('install event handler created a', ctorName,
+      'instead of a Promise');
+  } else {
+    event.waitUntil(promise);
+  }
 });
 
 // Intercepts each HTTP request.
@@ -48,13 +52,16 @@ this.addEventListener('fetch', event => {
       return caches.match('/sw-test/gallery/myLittleVader.jpg');
     });
 
-  console.log('service-worker.js fetch: promise =', promise);
-  console.log('service-worker.js fetch: promise.constructor.name =',
-    promise.constructor.name);
-  event.respondWith(promise);
+  const ctorName = promise.constructor.name;
+  if (ctorName !== 'Promise') {
+    console.error('fetch event handler created a', ctorName,
+      'instead of a Promise');
+  } else {
+    event.respondWith(promise);
+  }
 });
 
-this.addEventListener('activate', event => {
+this.addEventListener('activate', () => {
   console.log('service worker received activate event');
   // Uncomment this when version 2 is ready.
   /*
