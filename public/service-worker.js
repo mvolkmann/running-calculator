@@ -17,8 +17,8 @@ this.addEventListener('install', event => {
       ]);
     });
   console.log('service-worker.js install: promise =', promise);
-  console.log('service-worker.js install: promise.prototype.constructor.name =',
-    promise.prototype.constructor.name);
+  console.log('service-worker.js install: promise.constructor.name =',
+    promise.constructor.name);
   event.waitUntil(promise);
 });
 
@@ -49,8 +49,8 @@ this.addEventListener('fetch', event => {
     });
 
   console.log('service-worker.js fetch: promise =', promise);
-  console.log('service-worker.js fetch: promise.prototype.constructor.name =',
-    promise.prototype.constructor.name);
+  console.log('service-worker.js fetch: promise.constructor.name =',
+    promise.constructor.name);
   event.respondWith(promise);
 });
 
